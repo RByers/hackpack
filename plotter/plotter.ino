@@ -448,6 +448,13 @@ void setup() {
   bmpFile.seek(22);                  // Seek to height data
   Image.bmpHeight = bmpFile.read() + (bmpFile.read() << 8);
 
+  Serial.print("Image size: ");
+  Serial.print(Image.bmpWidth);
+  Serial.print("x");
+  Serial.println(Image.bmpHeight);
+
+  // TODO: Error out if the image is bigger than the canvas
+
   // BMP format specifics, Each row is padded to a multiple of 4 bytes
   Image.rowSize = (Image.bmpWidth * 3 + 3) & ~3;
 
@@ -480,7 +487,13 @@ void setup() {
   Plotter.nextCoords[0] = nextXY[0];    // X
   Plotter.nextCoords[1] = nextXY[1];    // Y
 
+  Serial.print("First coord: ");
+  Serial.print(nextXY[0]);
+  Serial.print(", ");
+  Serial.println(nextXY[1]);
+
   XYToLengths(Plotter.nextCoords[0], Plotter.nextCoords[1], nextL); 
+  // TODO: Error out if the string lengths are beyond max
   Plotter.nextLengths[0] = nextL[0];    // left
   Plotter.nextLengths[1] = nextL[1];    // right
 

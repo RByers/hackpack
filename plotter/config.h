@@ -1,5 +1,5 @@
 //Key UI variables------------------------------------------
-uint8_t bootSize = 0;      // [0 - 2] 0 - small, 1 - medium, 2 - large
+uint8_t bootSize = 2;      // [0 - 2] 0 - small, 1 - medium, 2 - large
 uint8_t initCursorPos = 6; // [0 - 7] Boot onto image selction
 
 uint8_t penStyle = 3;     // [0 - 3] Default pen style: dist, time, dotted, chance
